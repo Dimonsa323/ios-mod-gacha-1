@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C64" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="IMGR_CharacterCD" representedClassName="IMGR_CharacterCD" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="top" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="IMGR_CollectionsCD" representedClassName="IMGR_CollectionsCD" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="top" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="IMGR_EditorCD" representedClassName="IMGR_EditorCD" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <attribute name="preview" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="IMGR_MiniGameCD" representedClassName="IMGR_MiniGameCD" syncable="YES">
+        <attribute name="gameplay" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="top" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="IMGR_ModsCD" representedClassName="IMGR_ModsCD" syncable="YES">
+        <attribute name="descriptionCD" optional="YES" attributeType="String"/>
+        <attribute name="filePatch" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="top" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="IMGR_OutfitIdeaCD" representedClassName="IMGR_OutfitIdeaCD" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="top" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="IMGR_WallpaperCD" representedClassName="IMGR_WallpaperCD" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="newWall" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="top" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+</model>

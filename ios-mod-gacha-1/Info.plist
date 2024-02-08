@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PW_APP_GROUPS_NAME</key>
+	<string>com.demax.digital.development</string>
+	<key>Pushwoosh_APPID</key>
+	<string>D820C-308FB</string>
+	<key>Pushwoosh_LOG_LEVEL</key>
+	<string>NONE</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Comfortaa-Regular.ttf</string>
+		<string>ConcertOne-Regular.ttf</string>
+		<string>Comfortaa-Bold.ttf</string>
+		<string>Comfortaa-Medium.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+</dict>
+</plist>
