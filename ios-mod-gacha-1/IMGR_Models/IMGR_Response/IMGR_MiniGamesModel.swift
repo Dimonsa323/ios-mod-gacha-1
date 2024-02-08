@@ -8,6 +8,8 @@
 import Foundation
 import CoreData
 
+// MARK: - IMGR_MiniGamesModel
+
 struct IMGR_MiniGamesModel: Codable {
     let list: [IMGR_MiniGame]
     

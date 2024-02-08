@@ -89,7 +89,9 @@ class IMGR_NetworkMonitoringManager: ObservableObject {
         /* create the queue */
         let queue = DispatchQueue.init(label: "monitor queue", qos: .userInitiated)
         
-        /* start monitoring for changes */
+//         start monitoring for changes 
         monitor.start(queue: queue)
     }
 }
+
+
