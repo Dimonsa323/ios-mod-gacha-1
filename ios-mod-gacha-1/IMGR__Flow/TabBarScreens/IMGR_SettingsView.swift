@@ -4,12 +4,12 @@
 //
 //  Created by Дима Губеня on 03.01.2024.
 //
-
+//
 import SwiftUI
 
-struct SettingsView: View {
+struct IMGR_SettingsView: View {
     var body: some View {
-        ZStackWithBackground {
+        IMGR_ZStackWithBackground {
             HStack {
                 
             }
@@ -18,5 +18,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    IMGR_SettingsView()
 }
