@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct TabBarView: View {
-    @State private var selection: TabBar = .home
+struct IMGR_TabBarView: View {
+    @State private var selection: IMGR_TabBar = .home
     
-    enum TabBar {
+    enum IMGR_TabBar {
         case home
         case characters
         case games
@@ -18,14 +18,14 @@ struct TabBarView: View {
     }
     
     init() {
-        TabBarAppearance.shared.setAppearance()
+        IMGR_TabBarAppearance.shared.setAppearance()
     }
     
     var body: some View {
         ZStack(alignment: .bottom) {
             
             TabView(selection: $selection) {
-                HomeView()
+                IMGR_HomeView()
                     .tabItem {
                         Label {
                             Text("Home")
@@ -34,9 +34,9 @@ struct TabBarView: View {
                             Image(.tabBarHome)
                         }
                     }
-                    .tag(TabBar.home)
+                    .tag(IMGR_TabBar.home)
                 
-                CharactersView()
+                IMGR_CharactersView()
                     .tabItem {
                         Label {
                             Text("Characters")
@@ -44,9 +44,9 @@ struct TabBarView: View {
                             Image(.tabBarPerson)
                         }
                     }
-                    .tag(TabBar.characters)
+                    .tag(IMGR_TabBar.characters)
                 
-                GamesView()
+                IMGR_GamesView()
                     .tabItem {
                         Label {
                             Text("Games")
@@ -54,9 +54,9 @@ struct TabBarView: View {
                             Image(.tabBarGames)
                         }
                     }
-                    .tag(TabBar.games)
+                    .tag(IMGR_TabBar.games)
                 
-                SettingsView()
+                IMGR_SettingsView()
                     .tabItem {
                         Label {
                             Text("Settings")
@@ -64,7 +64,7 @@ struct TabBarView: View {
                             Image(.tabBarSetting)
                         }
                     }
-                    .tag(TabBar.settings)
+                    .tag(IMGR_TabBar.settings)
             }
         }
 //        .onAppear() {
@@ -75,5 +75,5 @@ struct TabBarView: View {
 }
 
 #Preview {
-    TabBarView()
+    IMGR_TabBarView()
 }

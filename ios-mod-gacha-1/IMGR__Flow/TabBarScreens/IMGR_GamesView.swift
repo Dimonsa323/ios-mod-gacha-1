@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GamesView: View {
+struct IMGR_GamesView: View {
     @State private var searchText = ""
     var textCell: String = """
 Lorem ipsum dolor sit amet, consectetur adipisci elit...
@@ -18,11 +18,11 @@ Lorem ipsum dolor sit amet, consectetur adipisci elit...
     ]
     
     var body: some View {
-        ZStackWithBackground {
+        IMGR_ZStackWithBackground {
             VStack(spacing: 0) {
                 navBarView
-                MG_CustomSearchBar_Ext(searchText: $searchText)
-                    .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
+               IMGR_CustomSearchBar_Ext(searchText: $searchText)
+                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: columns) {
@@ -31,8 +31,8 @@ Lorem ipsum dolor sit amet, consectetur adipisci elit...
                             
                         }
                         
-                        .MG_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 6, iPadPadding: 12)
-                        .MG_iosDeviceTypePadding(edge: .vertical, iOSPadding: 8, iPadPadding: 16)
+                        .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 6, iPadPadding: 12)
+                        .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 8, iPadPadding: 16)
                         .background(
                             RoundedRectangle(cornerRadius: isIPad ? 40 : 20)
                                            .fill(Color.modsCellBackground)
@@ -43,9 +43,9 @@ Lorem ipsum dolor sit amet, consectetur adipisci elit...
                                            .clipShape(RoundedRectangle(cornerRadius: isIPad ? 40 : 20))
                                 )
                         
-                        .MG_iosDeviceTypePadding(edge: .bottom, iOSPadding: 10, iPadPadding: 20)
+                        .IMGR_iosDeviceTypePadding(edge: .bottom, iOSPadding: 10, iPadPadding: 20)
                     }
-                    .MG_iosDeviceTypePadding(edge: .all, iOSPadding: 20, iPadPadding: 40)
+                    .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 20, iPadPadding: 40)
                 }
             }
             
@@ -55,7 +55,7 @@ Lorem ipsum dolor sit amet, consectetur adipisci elit...
 }
 
 //MARK: Child Views
-private extension GamesView {
+private extension IMGR_GamesView {
     
     //MARK: - Mods List View
     
@@ -66,6 +66,7 @@ private extension GamesView {
             Button {
                 //
             } label: {
+                #warning("IMAGE")
                 Image(.navBarBack)
                     .resizable()
                     .frame(width: isIPad ? 48 : 24)
@@ -77,24 +78,25 @@ private extension GamesView {
             Text("Mods")
                 .kerning(1.4)
                 .foregroundStyle(.black)
-                .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .regular, iPhoneSize: 28, iPadSize: 56))
+                .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .regular, iPhoneSize: 28, iPadSize: 56))
             
             Spacer()
             
             Button {
                 //
             } label: {
+#warning("IMAGE")
                 Image(.property1Filters)
                     .resizable()
                     .frame(width: isIPad ? 48 : 24)
                     .frame(height: isIPad ? 48 : 24)
-                    .MG_iosDeviceTypePadding(edge: .trailing, iOSPadding: 20, iPadPadding: 40)
+                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 20, iPadPadding: 40)
                 
             }
             
         }
-        .MG_iosDeviceTypePadding(edge: .bottom, iOSPadding: 12, iPadPadding: 24)
-        .MG_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
+        .IMGR_iosDeviceTypePadding(edge: .bottom, iOSPadding: 12, iPadPadding: 24)
+        .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
     }
 }
 
@@ -108,14 +110,14 @@ struct CardView: View {
             
             Text("Tittle")
                 .kerning(0.8)
-                .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 24)
-                .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 16, iPadSize: 32))
+                .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 24)
+                .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 16, iPadSize: 32))
                 .foregroundStyle(.secondary1)
             
             Text(text)
                 .kerning(0.5)
-                .MG_iosDeviceTypePadding(edge: .top, iOSPadding: 4, iPadPadding: 8)
-                .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 10, iPadSize: 20))
+                .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 4, iPadPadding: 8)
+                .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 10, iPadSize: 20))
                 .foregroundStyle(.gray2)
             
             Button {
@@ -123,20 +125,20 @@ struct CardView: View {
             } label: {
                 Text("Open")
                     .kerning(0.7)
-                    .MG_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 14, iPadSize: 28))
+                    .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 14, iPadSize: 28))
                     .foregroundStyle(.white)
                 
             }
-            .MG_iosDeviceTypeFrameAspec(iOSWidth: 159, iPadWidth: 318)
-            .MG_iosDeviceTypePadding(edge: .vertical, iOSPadding: 8, iPadPadding: 16)
-             .MG_iosDeviceTypeFrame(iOSHeight: 32, iPadHeight: 64)
+            .IMGR_iosDeviceTypeFrameAspec(iOSWidth: 159, iPadWidth: 318)
+            .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 8, iPadPadding: 16)
+             .IMGR_iosDeviceTypeFrame(iOSHeight: 32, iPadHeight: 64)
             .background(.secondary1)
-            .MG_cornerRadius(isIPad ? 24 : 12, corners: .allCorners)
+            .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
         }
     }
 }
 
 
 #Preview {
-    GamesView()
+    IMGR_GamesView()
 }
