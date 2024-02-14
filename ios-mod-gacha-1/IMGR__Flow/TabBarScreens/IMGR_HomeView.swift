@@ -6,9 +6,21 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct IMGR_HomeView: View {
+    @Injected private var apiManager: IMGR_HomeDataAPI
+    @Injected private var networkManager: IMGR_NetworkMonitoringManager
+    @Injected private var coreData: IMGR_CoreDataStore
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @State private var searchText = ""
+    @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
+    private var mods
+    
+    @FetchRequest<IMGR_OutfitIdeaCD>(fetchRequest: .IMGR_outfitIdea())
+    private var outfitIdea
     
     var body: some View {
         IMGR_ZStackWithBackground {
@@ -55,14 +67,13 @@ private extension IMGR_HomeView {
         .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
         ScrollView(.horizontal, showsIndicators: false) {
             HStack() {
-                ForEach(0..<5) { index in
+                ForEach(mods) { mod in
                     VStack(alignment: .leading) {
-                        #warning("IMAGE")
-                        Image(.moko)
+                        Image(mod.image ?? "")
                             .resizable()
                             .IMGR_cornerRadius_IMGR(isIPad ? 32 : 16, corners: .allCorners)
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 12, iPadPadding: 24)
-                        Text("Mod Name \(index + 1)")
+                        Text(mod.name ?? "")
                             .kerning(1)
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
                             .IMGR_iosDeviceTypePadding(edge: [.bottom, .leading], iOSPadding: 12, iPadPadding: 24)
@@ -104,9 +115,8 @@ private extension IMGR_HomeView {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack() {
-                    ForEach(0..<10) { index in
-                        #warning("IMAGE")
-                        Image(.mocoImage2)
+                    ForEach(outfitIdea) { outfit in
+                        Image(outfit.image ?? "")
                             .resizable()
                             .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 8, iPadPadding: 16)
@@ -149,4 +159,5 @@ private extension IMGR_HomeView {
 
 #Preview {
     IMGR_HomeView()
+        
 }

@@ -15,7 +15,7 @@ struct IMGR_SplashScreen: View {
     @Injected private var networkManager: IMGR_NetworkMonitoringManager
     @Injected private var coreData: IMGR_CoreDataStore
     
-    @FetchRequest<IMGR_ModsCD>(fetchRequest: IMGR_ModsCD.fetchRequest())
+    @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
     private var mods
     
     @State private var downloadedFile: Double = 0
@@ -56,26 +56,15 @@ struct IMGR_SplashScreen: View {
 private extension IMGR_SplashScreen {
     
     func firstDownloading() async {
-        let viewContext = coreData.IMGR_saveChanges()
-        let request = IMGR_ModsCD.fetchRequest()
-        request.sortDescriptors = []
-        
-        do {
-            let mods = try await viewContext.fetch(request)
-            print("Number of objects in Core Data: \(mods.count)")
-            
-            if networkManager.IMGR_isReachable()  {
+        if networkManager.IMGR_isReachable()  {
+            await IMGR_downloadingStream()
+        } else {
+            if mods.isEmpty {
                 await IMGR_downloadingStream()
             } else {
-                if mods.isEmpty {
-                    await IMGR_downloadingStream()
-                } else {
-                    splashScreenIsShow = true
-                    Logger.debug("All downloaded success")
-                }
+                splashScreenIsShow = true
+                Logger.debug("All downloaded success")
             }
-        } catch {
-            Logger.error("Error fetching mods: \(error)")
         }
     }
     

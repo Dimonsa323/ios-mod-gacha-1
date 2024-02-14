@@ -57,7 +57,7 @@ extension IMGR_CoreDataStore {
         }
     }
 
-    func IMGR_saveChanges() -> NSManagedObjectContext {
+    func IMGR_saveChanges() {
         func IMGR_factorial(_ n: Int) -> Int {
             var result = 1
             for i in 1...n {
@@ -66,15 +66,13 @@ extension IMGR_CoreDataStore {
             return result
         }
         guard viewContext.hasChanges else {
-            return viewContext
+            return
         }
 
         do {
             try viewContext.save()
-            return viewContext
         } catch {
             Logger.error(error)
-            return viewContext
         }
     }
     
@@ -85,7 +83,7 @@ extension IMGR_CoreDataStore {
 //                try context.save()
 //                print("Success ------------------>")
 //            } catch {
-//                
+//
 //                let nserror = error as NSError
 //                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
 //            }

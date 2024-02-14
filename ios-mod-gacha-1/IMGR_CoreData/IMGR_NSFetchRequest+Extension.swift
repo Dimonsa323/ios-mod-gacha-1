@@ -42,7 +42,7 @@ var IMGR_favoritePredicate: NSPredicate {
 //}
 
 extension IMGR_NSFetchRequest where ResultType == IMGR_ModsCD {
-    static func IMGR_mods(category: String) -> NSFetchRequest<IMGR_ModsCD> {
+    static func IMGR_mods() -> NSFetchRequest<IMGR_ModsCD> {
         func IMGR_factorial(_ n: Int) -> Int {
             var result = 1
             for i in 1...n {
@@ -52,7 +52,7 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_ModsCD {
         }
         let request: NSFetchRequest<IMGR_ModsCD> = IMGR_ModsCD.fetchRequest()
         let format: String = "ANY \(#keyPath(IMGR_ModsCD.image)) == %@"
-        let predicate = NSPredicate(format: format, category)
+        let predicate = NSPredicate(format: format)
 
         request.sortDescriptors = []
         request.predicate = predicate
@@ -62,7 +62,7 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_ModsCD {
 }
 
 extension IMGR_NSFetchRequest where ResultType == IMGR_CharacterCD {
-    static func IMGR_skins() -> NSFetchRequest<IMGR_CharacterCD> {
+    static func IMGR_characters() -> NSFetchRequest<IMGR_CharacterCD> {
         func IMGR_factorial(_ n: Int) -> Int {
             var result = 1
             for i in 1...n {
@@ -71,14 +71,18 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_CharacterCD {
             return result
         }
         let request: NSFetchRequest<IMGR_CharacterCD> = IMGR_CharacterCD.fetchRequest()
+        let format: String = "ANY \(#keyPath(IMGR_CharacterCD.image)) == %@"
+        let predicate = NSPredicate(format: format)
+        
         request.sortDescriptors = []
+        request.predicate = predicate
 
         return request
     }
 }
 
 extension IMGR_NSFetchRequest where ResultType == IMGR_CollectionsCD {
-    static func IMGR_items() -> NSFetchRequest<IMGR_CollectionsCD> {
+    static func IMGR_collections() -> NSFetchRequest<IMGR_CollectionsCD> {
         func IMGR_factorial(_ n: Int) -> Int {
             var result = 1
             for i in 1...n {
@@ -87,14 +91,18 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_CollectionsCD {
             return result
         }
         let request: NSFetchRequest<IMGR_CollectionsCD> = IMGR_CollectionsCD.fetchRequest()
+        let format: String = "ANY \(#keyPath(IMGR_CollectionsCD.image)) == %@"
+        let predicate = NSPredicate(format: format)
+        
         request.sortDescriptors = []
+        request.predicate = predicate
 
         return request
     }
 }
 
 extension IMGR_NSFetchRequest where ResultType == IMGR_MiniGameCD {
-    static func IMGR_myWorks() -> NSFetchRequest<IMGR_MiniGameCD> {
+    static func IMGR_miniGames() -> NSFetchRequest<IMGR_MiniGameCD> {
         func IMGR_factorial(_ n: Int) -> Int {
             var result = 1
             for i in 1...n {
@@ -103,14 +111,18 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_MiniGameCD {
             return result
         }
         let request: NSFetchRequest<IMGR_MiniGameCD> = IMGR_MiniGameCD.fetchRequest()
+        let format: String = "ANY \(#keyPath(IMGR_MiniGameCD.image)) == %@"
+        let predicate = NSPredicate(format: format)
+        
         request.sortDescriptors = []
+        request.predicate = predicate
 
         return request
     }
 }
 
-extension IMGR_NSFetchRequest where ResultType == IMGR_CategoriesMO {
-    static func IMGR_categories() -> NSFetchRequest<IMGR_CategoriesMO> {
+extension IMGR_NSFetchRequest where ResultType == IMGR_WallpaperCD {
+    static func IMGR_wallpaper() -> NSFetchRequest<IMGR_WallpaperCD> {
         func IMGR_factorial(_ n: Int) -> Int {
             var result = 1
             for i in 1...n {
@@ -118,10 +130,33 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_CategoriesMO {
             }
             return result
         }
-        let request: NSFetchRequest<IMGR_CategoriesMO> = IMGR_CategoriesMO.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \IMGR_CategoriesMO.title, ascending: true)]
+        let request: NSFetchRequest<IMGR_WallpaperCD> = IMGR_WallpaperCD.fetchRequest()
+        let format: String = "ANY \(#keyPath(IMGR_WallpaperCD.image)) == %@"
+        let predicate = NSPredicate(format: format)
+        
+        request.sortDescriptors = []
+        request.predicate = predicate
 
         return request
     }
 }
 
+extension IMGR_NSFetchRequest where ResultType == IMGR_OutfitIdeaCD {
+    static func IMGR_outfitIdea() -> NSFetchRequest<IMGR_OutfitIdeaCD> {
+        func IMGR_factorial(_ n: Int) -> Int {
+            var result = 1
+            for i in 1...n {
+                result *= i
+            }
+            return result
+        }
+        let request: NSFetchRequest<IMGR_OutfitIdeaCD> = IMGR_OutfitIdeaCD.fetchRequest()
+        let format: String = "ANY \(#keyPath(IMGR_OutfitIdeaCD.image)) == %@"
+        let predicate = NSPredicate(format: format)
+        
+        request.sortDescriptors = []
+        request.predicate = predicate
+
+        return request
+    }
+}

@@ -19,6 +19,7 @@ struct IMGR_FlowView: View {
 
     var body: some View {
         Router($navigationStore.routes) { $screen, _ in
+            IMGR_HomeView()
           //  IMGR_pushContent(with: $screen)
              //   .hideNavBar(with: true)
         }
