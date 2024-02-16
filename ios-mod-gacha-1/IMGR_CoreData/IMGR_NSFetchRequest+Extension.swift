@@ -50,12 +50,9 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_ModsCD {
             }
             return result
         }
+        
         let request: NSFetchRequest<IMGR_ModsCD> = IMGR_ModsCD.fetchRequest()
-        let format: String = "ANY \(#keyPath(IMGR_ModsCD.image)) == %@"
-        let predicate = NSPredicate(format: format)
-
         request.sortDescriptors = []
-        request.predicate = predicate
 
         return request
     }
@@ -71,12 +68,8 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_CharacterCD {
             return result
         }
         let request: NSFetchRequest<IMGR_CharacterCD> = IMGR_CharacterCD.fetchRequest()
-        let format: String = "ANY \(#keyPath(IMGR_CharacterCD.image)) == %@"
-        let predicate = NSPredicate(format: format)
-        
         request.sortDescriptors = []
-        request.predicate = predicate
-
+       
         return request
     }
 }
@@ -91,11 +84,7 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_CollectionsCD {
             return result
         }
         let request: NSFetchRequest<IMGR_CollectionsCD> = IMGR_CollectionsCD.fetchRequest()
-        let format: String = "ANY \(#keyPath(IMGR_CollectionsCD.image)) == %@"
-        let predicate = NSPredicate(format: format)
-        
         request.sortDescriptors = []
-        request.predicate = predicate
 
         return request
     }
@@ -111,11 +100,7 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_MiniGameCD {
             return result
         }
         let request: NSFetchRequest<IMGR_MiniGameCD> = IMGR_MiniGameCD.fetchRequest()
-        let format: String = "ANY \(#keyPath(IMGR_MiniGameCD.image)) == %@"
-        let predicate = NSPredicate(format: format)
-        
         request.sortDescriptors = []
-        request.predicate = predicate
 
         return request
     }
@@ -131,11 +116,7 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_WallpaperCD {
             return result
         }
         let request: NSFetchRequest<IMGR_WallpaperCD> = IMGR_WallpaperCD.fetchRequest()
-        let format: String = "ANY \(#keyPath(IMGR_WallpaperCD.image)) == %@"
-        let predicate = NSPredicate(format: format)
-        
         request.sortDescriptors = []
-        request.predicate = predicate
 
         return request
     }
@@ -151,11 +132,7 @@ extension IMGR_NSFetchRequest where ResultType == IMGR_OutfitIdeaCD {
             return result
         }
         let request: NSFetchRequest<IMGR_OutfitIdeaCD> = IMGR_OutfitIdeaCD.fetchRequest()
-        let format: String = "ANY \(#keyPath(IMGR_OutfitIdeaCD.image)) == %@"
-        let predicate = NSPredicate(format: format)
-        
         request.sortDescriptors = []
-        request.predicate = predicate
 
         return request
     }
