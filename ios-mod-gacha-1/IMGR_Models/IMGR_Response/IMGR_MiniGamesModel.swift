@@ -52,7 +52,7 @@ struct IMGR_MiniGame: Codable, IMGR_CoreDataConvertible {
     
     func convertToCoreDataEntity(in context: NSManagedObjectContext) -> IMGR_MiniGameCD {
             let dataCD = IMGR_MiniGameCD(context: context)
-            dataCD.id = Int16(self.id)
+            dataCD.id = UUID()
             dataCD.name = self.name
             dataCD.image = self.image
             dataCD.new = self.new

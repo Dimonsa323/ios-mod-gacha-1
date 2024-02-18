@@ -57,19 +57,9 @@ struct IMGR_ModsModel: Codable, IMGR_CoreDataConvertible {
         self.top = try container.decode(Bool.self, forKey: .top)
     }
     
-    init(model: IMGR_ModsCD) {
-        self.id = Int(model.id)
-        self.name = model.name ?? ""
-        self.image = model.image ?? ""
-        self.description = model.descriptionCD ?? ""
-        self.filePath = model.filePatch ?? ""
-        self.new = model.new
-        self.top = model.top
-    }
-    
     func convertToCoreDataEntity(in context: NSManagedObjectContext) -> IMGR_ModsCD {
             let dataCD = IMGR_ModsCD(context: context)
-            dataCD.id = Int16(self.id)
+            dataCD.id = UUID()
             dataCD.name = self.name
             dataCD.image = self.image
             dataCD.descriptionCD = self.description

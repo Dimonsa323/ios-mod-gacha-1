@@ -19,7 +19,7 @@
     </entity>
     <entity name="IMGR_MiniGameCD" representedClassName="IMGR_MiniGameCD" syncable="YES">
         <attribute name="gameplay" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -28,7 +28,7 @@
     <entity name="IMGR_ModsCD" representedClassName="IMGR_ModsCD" syncable="YES">
         <attribute name="descriptionCD" optional="YES" attributeType="String"/>
         <attribute name="filePatch" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

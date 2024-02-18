@@ -9,6 +9,9 @@ import SwiftUI
 
 struct IMGR_GamesView: View {
     @State private var searchText = ""
+    
+    @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
+    private var mods
     var textCell: String = """
 Lorem ipsum dolor sit amet, consectetur adipisci elit...
 """
@@ -21,32 +24,31 @@ Lorem ipsum dolor sit amet, consectetur adipisci elit...
         IMGR_ZStackWithBackground {
             VStack(spacing: 0) {
                 navBarView
-               IMGR_CustomSearchBar_Ext(searchText: $searchText)
+                IMGR_CustomSearchBar_Ext(searchText: $searchText)
                     .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: columns) {
-                        ForEach(0..<20, id: \.self) { index in
-                            CardView(text: textCell)
-                            
+                        ForEach(mods) { mod in
+                            CardView(text: textCell, imageURL: "/\(mod.image ?? "")")
                         }
-                        
                         .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 6, iPadPadding: 12)
                         .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 8, iPadPadding: 16)
                         .background(
                             RoundedRectangle(cornerRadius: isIPad ? 40 : 20)
-                                           .fill(Color.modsCellBackground)
-                                           .overlay(
-                                               RoundedRectangle(cornerRadius: isIPad ? 40 : 20)
-                                                   .stroke(Color.borderMods, lineWidth: 1)
-                                           )
-                                           .clipShape(RoundedRectangle(cornerRadius: isIPad ? 40 : 20))
+                                .fill(Color.modsCellBackground)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: isIPad ? 40 : 20)
+                                        .stroke(Color.borderMods, lineWidth: 1)
                                 )
+                                .clipShape(RoundedRectangle(cornerRadius: isIPad ? 40 : 20))
+                        )
                         
                         .IMGR_iosDeviceTypePadding(edge: .bottom, iOSPadding: 10, iPadPadding: 20)
                     }
                     .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 20, iPadPadding: 40)
                 }
+                .frame(maxWidth: .infinity)
             }
             
             .ignoresSafeArea(edges: .bottom)
@@ -66,7 +68,6 @@ private extension IMGR_GamesView {
             Button {
                 //
             } label: {
-                #warning("IMAGE")
                 Image(.navBarBack)
                     .resizable()
                     .frame(width: isIPad ? 48 : 24)
@@ -85,7 +86,7 @@ private extension IMGR_GamesView {
             Button {
                 //
             } label: {
-#warning("IMAGE")
+                
                 Image(.property1Filters)
                     .resizable()
                     .frame(width: isIPad ? 48 : 24)
@@ -103,10 +104,11 @@ private extension IMGR_GamesView {
 struct CardView: View {
     
     let text: String
+    let imageURL: String
     
     var body: some View {
         VStack(alignment: .leading) {
-            Image(.trioList)
+            RemoteImage(url: imageURL, size: .init(width: 0, height: 120), image: .constant(nil), cornerRadius: isIPad ? 28 : 14)
             
             Text("Tittle")
                 .kerning(0.8)
@@ -131,7 +133,7 @@ struct CardView: View {
             }
             .IMGR_iosDeviceTypeFrameAspec(iOSWidth: 159, iPadWidth: 318)
             .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 8, iPadPadding: 16)
-             .IMGR_iosDeviceTypeFrame(iOSHeight: 32, iPadHeight: 64)
+            .IMGR_iosDeviceTypeFrame(iOSHeight: 32, iPadHeight: 64)
             .background(.secondary1)
             .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
         }
@@ -141,4 +143,5 @@ struct CardView: View {
 
 #Preview {
     IMGR_GamesView()
+        .environment(\.managedObjectContext, IMGR_CoreDataStoreMock.preview)
 }

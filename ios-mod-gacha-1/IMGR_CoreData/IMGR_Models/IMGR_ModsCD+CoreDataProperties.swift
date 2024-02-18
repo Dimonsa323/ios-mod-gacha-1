@@ -18,7 +18,7 @@ extension IMGR_ModsCD {
 
     @NSManaged public var descriptionCD: String?
     @NSManaged public var filePatch: String?
-    @NSManaged public var id: Int16
+    @NSManaged public var id: UUID?
     @NSManaged public var image: String?
     @NSManaged public var name: String?
     @NSManaged public var new: Bool

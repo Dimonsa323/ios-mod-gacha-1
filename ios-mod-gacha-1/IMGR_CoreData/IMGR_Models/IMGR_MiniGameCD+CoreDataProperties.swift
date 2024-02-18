@@ -17,7 +17,7 @@ extension IMGR_MiniGameCD {
     }
 
     @NSManaged public var gameplay: String?
-    @NSManaged public var id: Int16
+    @NSManaged public var id: UUID?
     @NSManaged public var image: String?
     @NSManaged public var name: String?
     @NSManaged public var new: Bool

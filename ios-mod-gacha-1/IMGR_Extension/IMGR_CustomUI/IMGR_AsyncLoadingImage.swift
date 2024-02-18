@@ -16,12 +16,14 @@ struct RemoteImage: View {
 
     private let size: CGSize
     private let localImage: UIImage?
+    private let corerRadius: CGFloat
 
-    init(url: String, size: CGSize, image: Binding<UIImage?>, localImage: UIImage? = nil) {
+    init(url: String, size: CGSize, image: Binding<UIImage?>, localImage: UIImage? = nil, cornerRadius: CGFloat) {
         _imageLoader = .init(wrappedValue: ImageLoader(url: url))
         self.size = size
         self._image = image
         self.localImage = localImage
+        self.corerRadius = cornerRadius
     }
 
     var body: some View {
@@ -29,6 +31,7 @@ struct RemoteImage: View {
             if let image = imageLoader.image {
                 Image(uiImage: image)
                     .resizable()
+                    .IMGR_cornerRadius_IMGR(corerRadius, corners: .allCorners)
             } else if let localImage {
                 Image(uiImage: localImage)
                     .resizable()

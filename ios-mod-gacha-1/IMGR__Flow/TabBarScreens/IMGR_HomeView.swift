@@ -69,9 +69,8 @@ private extension IMGR_HomeView {
             HStack() {
                 ForEach(mods) { mod in
                     VStack(alignment: .leading) {
-                        Image(mod.image ?? "")
-                            .resizable()
-                            .IMGR_cornerRadius_IMGR(isIPad ? 32 : 16, corners: .allCorners)
+                        RemoteImage(url: "/\(mod.image ?? "")", size: .init(width: 0, height: 159), image: .constant(nil), cornerRadius: isIPad ? 32 : 16)
+//                            .IMGR_cornerRadius_IMGR(isIPad ? 32 : 16, corners: .allCorners)
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 12, iPadPadding: 24)
                         Text(mod.name ?? "")
                             .kerning(1)
@@ -116,9 +115,8 @@ private extension IMGR_HomeView {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack() {
                     ForEach(outfitIdea) { outfit in
-                        Image(outfit.image ?? "")
-                            .resizable()
-                            .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
+                        RemoteImage(url: "/\(outfit.image ?? "")", size: .init(width: 0, height: 171), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+//                            .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 8, iPadPadding: 16)
                             .background(.whiteLight)
                             .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
@@ -159,5 +157,5 @@ private extension IMGR_HomeView {
 
 #Preview {
     IMGR_HomeView()
-        
+        .environment(\.managedObjectContext, IMGR_CoreDataStoreMock.preview)
 }
