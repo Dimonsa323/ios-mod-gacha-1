@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IMGR_GamesView: View {
+struct IMGR_ModsView: View {
     @State private var searchText = ""
     
     @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
@@ -57,7 +57,7 @@ Lorem ipsum dolor sit amet, consectetur adipisci elit...
 }
 
 //MARK: Child Views
-private extension IMGR_GamesView {
+private extension IMGR_ModsView {
     
     //MARK: - Mods List View
     
@@ -142,6 +142,6 @@ struct CardView: View {
 
 
 #Preview {
-    IMGR_GamesView()
+    IMGR_ModsView()
         .environment(\.managedObjectContext, IMGR_CoreDataStoreMock.preview)
 }

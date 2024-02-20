@@ -131,12 +131,12 @@ private extension IMGR_SplashScreen {
             }
         }
     }
-
-func updateProgress() {
-    withAnimation(.easeInOut(duration: 1)) {
-        downloadedFile += 1
+    
+    func updateProgress() {
+        withAnimation(.easeInOut(duration: 1)) {
+            downloadedFile += 1
+        }
     }
-}
 }
 
 #Preview {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IMGR_CharactersView: View {
+struct IMGR_ModView: View {
     var textMod: String = """
 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum...
 
@@ -33,7 +33,7 @@ Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidu
 }
 
 //MARK: Child Views
-private extension IMGR_CharactersView {
+private extension IMGR_ModView {
     
     //MARK: - Mod List View
     
@@ -130,7 +130,7 @@ private extension IMGR_CharactersView {
 
 
 #Preview {
-    IMGR_CharactersView()
+    IMGR_ModView()
 }
 
 
