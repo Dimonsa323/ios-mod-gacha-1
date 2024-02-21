@@ -2,7 +2,7 @@
 //  IMGR_OutfitIdeaCD+CoreDataProperties.swift
 //  ios-mod-gacha-1
 //
-//  Created by Дима Губеня on 08.02.2024.
+//  Created by Дима Губеня on 21.02.2024.
 //
 //
 
@@ -16,7 +16,7 @@ extension IMGR_OutfitIdeaCD {
         return NSFetchRequest<IMGR_OutfitIdeaCD>(entityName: "IMGR_OutfitIdeaCD")
     }
 
-    @NSManaged public var id: Int16
+    @NSManaged public var id: UUID?
     @NSManaged public var image: String?
     @NSManaged public var new: Bool
     @NSManaged public var top: Bool

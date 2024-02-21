@@ -68,7 +68,7 @@ class IMGR_CoreDataStoreMock {
         
         let objectsCD = (1...20).map { index in
             let object = IMGR_CharacterCD(context: moc)
-            object.id = 1
+            object.id = UUID()
             object.image = "characters/1chi.jpg"
             object.new = false
             object.top = true
@@ -91,7 +91,7 @@ class IMGR_CoreDataStoreMock {
         
         let objectsCD = (1...20).map { index in
             let object = IMGR_OutfitIdeaCD(context: moc)
-            object.id = 1
+            object.id = UUID()
             object.image = "OutfitIdeas/1.jpg"
             object.new = false
             object.top = true
@@ -114,7 +114,7 @@ class IMGR_CoreDataStoreMock {
         
         let objectsCD = (1...20).map { index in
             let object = IMGR_WallpaperCD(context: moc)
-            object.id = 1
+            object.id = UUID()
             object.image = "wallpapers/1.jpg"
             object.newWall = false
             object.top = true
@@ -162,7 +162,7 @@ class IMGR_CoreDataStoreMock {
         
         let objectsCD = (1...20).map { index in
             let object = IMGR_CollectionsCD(context: moc)
-            object.id = 1
+            object.id = UUID()
             object.image = "MiniGames/1.jpg"
             object.new = false
             object.top = true

@@ -57,7 +57,7 @@ struct IMGR_Wallpaper: Codable, IMGR_CoreDataConvertible {
     
     func convertToCoreDataEntity(in context: NSManagedObjectContext) -> IMGR_WallpaperCD {
             let dataCD = IMGR_WallpaperCD(context: context)
-            dataCD.id = Int16(self.id)
+            dataCD.id = UUID()
             dataCD.image = self.image
             dataCD.newWall = self.newWall
             dataCD.top = self.top

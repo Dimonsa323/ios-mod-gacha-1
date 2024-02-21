@@ -47,7 +47,7 @@ struct IMGR_Collections: Codable, IMGR_CoreDataConvertible {
     
     func convertToCoreDataEntity(in context: NSManagedObjectContext) -> IMGR_CollectionsCD {
             let dataCD = IMGR_CollectionsCD(context: context)
-            dataCD.id = Int16(self.id)
+            dataCD.id = UUID()
             dataCD.image = self.image
             dataCD.new = self.new
             dataCD.top = self.top
