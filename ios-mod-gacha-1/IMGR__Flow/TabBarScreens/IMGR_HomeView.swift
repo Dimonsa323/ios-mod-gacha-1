@@ -12,6 +12,7 @@ struct IMGR_HomeView: View {
     @Injected private var apiManager: IMGR_HomeDataAPI
     @Injected private var networkManager: IMGR_NetworkMonitoringManager
     @Injected private var coreData: IMGR_CoreDataStore
+    @InjectedObject private var navigationStore: IMGR_MainNavigationStore
     
     @State private var searchText = ""
     @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())

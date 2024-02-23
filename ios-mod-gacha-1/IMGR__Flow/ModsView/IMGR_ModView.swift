@@ -75,16 +75,16 @@ private extension IMGR_ModView {
     
     func contentView(geo: GeometryProxy) -> some View {
         VStack {
-            ForEach(mods) { mod in
-                RemoteImage(url: "/\(mod.image ?? "")", size: .init(width: 0, height: 200), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+           
+                RemoteImage(url: "/\(mods)", size: .init(width: 0, height: 150), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
                 //                .resizable()
                 //    .IMGR_cornerRadius_IMGR(isIPad ? 40 : 20, corners: .allCorners)
                     .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
                     .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
                     .IMGR_iosDeviceTypeFrameAspec(iOSHeight: 200, iPadHeight: 400)
-                
+            
                 VStack(spacing: 0) {
-                    Text(mod.name ?? "")
+                    Text("Tittle")
                         .kerning(1)
                         .foregroundColor(.secondary1)
                         .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
@@ -95,7 +95,6 @@ private extension IMGR_ModView {
                         .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 14, iPadSize: 28))
                         .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 8, iPadPadding: 16)
                 }
-            }
             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 16, iPadPadding: 32)
             
             .background(.tintWhite)

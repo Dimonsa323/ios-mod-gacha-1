@@ -45,19 +45,19 @@ struct IMGR_FlowView: View {
         }
     }
 
-//    @ViewBuilder
-//    func IMGR_pushContent(with path: Binding<IMGR_MainRoute>) -> some View {
-//        switch path.wrappedValue {
-//        case .tabView:
-//            tabView
-//        case let .detail(item, contentType):
-//            EmptyView()
-////            IMGR_GeneralDetailView(item: item, contentType: contentType)
-//        case .editor(let IMGR_MyWorks):
-//            EmptyView()
-////            IMGR_EditorView(myMod: IMGR_MyWorks)
-//        }
-//    }
+    @ViewBuilder
+    func IMGR_pushContent(with path: Binding<IMGR_MainRoute>) -> some View {
+        switch path.wrappedValue {
+        case .tabView:
+           // tabView
+        case let .detail(item, contentType):
+            EmptyView()
+//            IMGR_GeneralDetailView(item: item, contentType: contentType)
+        case .editor(let IMGR_MyWorks):
+            EmptyView()
+//            IMGR_EditorView(myMod: IMGR_MyWorks)
+        }
+    }
 }
 
 extension IMGR_View {
