@@ -95,9 +95,9 @@ struct IMGR_CategoryList<Content: View, Data: RandomAccessCollection>: View wher
                 .IMGR_readSize($size.animation())
                 .id("Static")
             }
-            .onChange(of: navigator.selectedTab) { newValue in
-                proxy.scrollTo("Static", anchor: .top)
-            }
+//            .onChange(of: navigator.selectedTab) { newValue in
+//                proxy.scrollTo("Static", anchor: .top)
+//            }
             .onChange(of: dropDownSelection.id) { newValue in
                 proxy.scrollTo("Static", anchor: .top)
             }

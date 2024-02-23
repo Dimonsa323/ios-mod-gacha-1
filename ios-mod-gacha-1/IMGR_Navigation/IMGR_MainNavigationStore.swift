@@ -17,7 +17,7 @@ final class IMGR_MainNavigationStore: ObservableObject {
     }
     return allCharacters
 }
-    @Published var presentSideMenu = false
-    @Published var selectedTab: IMGR_ContentType = .mods
+//    @Published var presentSideMenu = false
+//    @Published var selectedTab: IMGR_ContentType = .mods
     @Published var routes: Routes<IMGR_MainRoute> = [.root(.tabView, embedInNavigationView: true)]
 }

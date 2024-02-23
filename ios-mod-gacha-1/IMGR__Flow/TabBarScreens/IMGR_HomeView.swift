@@ -13,8 +13,6 @@ struct IMGR_HomeView: View {
     @Injected private var networkManager: IMGR_NetworkMonitoringManager
     @Injected private var coreData: IMGR_CoreDataStore
     
-    @Environment(\.managedObjectContext) private var viewContext
-    
     @State private var searchText = ""
     @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
     private var mods
@@ -70,7 +68,9 @@ private extension IMGR_HomeView {
                 ForEach(mods) { mod in
                     VStack(alignment: .leading) {
                         RemoteImage(url: "/\(mod.image ?? "")", size: .init(width: 0, height: 159), image: .constant(nil), cornerRadius: isIPad ? 32 : 16)
-//                            .IMGR_cornerRadius_IMGR(isIPad ? 32 : 16, corners: .allCorners)
+                            .onTapGesture {
+                                
+                            }
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 12, iPadPadding: 24)
                         Text(mod.name ?? "")
                             .kerning(1)

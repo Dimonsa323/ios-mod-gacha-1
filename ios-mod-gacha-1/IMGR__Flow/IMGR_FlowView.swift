@@ -28,20 +28,20 @@ struct IMGR_FlowView: View {
 
     var tabView: some View {
         IMGR_ZStackWithBackground {
-            TabView(selection: $navigationStore.selectedTab) {
-                ForEach(IMGR_ContentType.tabBar) { type in
-//                    switch navigationStore.selectedTab {
-//                    case .mods:
-//                        IMGR_GeneralContentView()
-//                        //                IMGR_SettingsView()
-//                    default:
-//                        EmptyView()
-//                    }
-                }
-            }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .disableTabViewSwipe()
-            .edgesIgnoringSafeArea(.bottom)
+//            TabView(selection: $navigationStore.selectedTab) {
+//                ForEach(IMGR_ContentType.tabBar) { type in
+////                    switch navigationStore.selectedTab {
+////                    case .mods:
+////                        IMGR_GeneralContentView()
+////                        //                IMGR_SettingsView()
+////                    default:
+////                        EmptyView()
+////                    }
+//                }
+//            }
+//            .tabViewStyle(.page(indexDisplayMode: .never))
+//            .disableTabViewSwipe()
+//            .edgesIgnoringSafeArea(.bottom)
         }
     }
 
