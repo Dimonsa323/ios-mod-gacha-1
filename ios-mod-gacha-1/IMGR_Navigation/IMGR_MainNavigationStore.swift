@@ -19,5 +19,6 @@ final class IMGR_MainNavigationStore: ObservableObject {
 }
   //  @Published var presentSideMenu = false
     @Published var selectedTab: IMGR_ContentType = .mods
-    @Published var routes: Routes<IMGR_MainRoute> = [.root(.tabView, embedInNavigationView: true)]
+    @Published var routes: Routes<IMGR_MainRoute> = [.root(.tabBar, embedInNavigationView: true)]
 }
+ 

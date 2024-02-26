@@ -8,7 +8,7 @@
 import Foundation
 
 enum IMGR_MainRoute: Hashable {
-    case tabView
+    case tabBar
     case detail(IMGR_ContentType)
     case editor(IMGR_EditorCD)
 }
