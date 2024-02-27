@@ -7,8 +7,10 @@
 
 import SwiftUI
 import Resolver
+import FlowStacks
 
 struct IMGR_HomeView: View {
+    @EnvironmentObject var navigator: FlowNavigator<IMGR_MainRoute>
     @Injected private var apiManager: IMGR_HomeDataAPI
     @Injected private var networkManager: IMGR_NetworkMonitoringManager
     @Injected private var coreData: IMGR_CoreDataStore
@@ -70,7 +72,7 @@ private extension IMGR_HomeView {
                     VStack(alignment: .leading) {
                         RemoteImage(url: "/\(mod.image ?? "")", size: .init(width: 0, height: 159), image: .constant(nil), cornerRadius: isIPad ? 32 : 16)
                             .onTapGesture {
-                                
+                                navigator.push(<#T##screen: IMGR_MainRoute##IMGR_MainRoute#>)
                             }
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 12, iPadPadding: 24)
                         Text(mod.name ?? "")
