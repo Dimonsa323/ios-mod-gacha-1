@@ -72,7 +72,7 @@ private extension IMGR_HomeView {
                     VStack(alignment: .leading) {
                         RemoteImage(url: "/\(mod.image ?? "")", size: .init(width: 0, height: 159), image: .constant(nil), cornerRadius: isIPad ? 32 : 16)
                             .onTapGesture {
-                                navigator.push(<#T##screen: IMGR_MainRoute##IMGR_MainRoute#>)
+                                navigator.push()
                             }
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 12, iPadPadding: 24)
                         Text(mod.name ?? "")

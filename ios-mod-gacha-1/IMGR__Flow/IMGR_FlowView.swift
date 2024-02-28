@@ -17,7 +17,7 @@ struct IMGR_FlowView: View {
     //        UITabBar.appearance().isHidden = false
     //    }
     
-    var body: some View {
+    var body: some View { 
         Router($navigationStore.routes) { $screen, _ in
         //    IMGR_TabBarView()
             //            IMGR_HomeView()
@@ -56,7 +56,7 @@ struct IMGR_FlowView: View {
             case .tabBar:
                 tabBar
             case let .detail(contentType):
-                EmptyView()
+                EmptyView() 
                 //    IMGR_GeneralDetailView(item: item, contentType: contentType)
             case .editor(let IMGR_MyWorks):
                 EmptyView()
