@@ -36,15 +36,15 @@ struct IMGR_TabBarView: View {
                     }
                     .tag(IMGR_TabBar.home)
                 
-                IMGR_ModView()
-                    .tabItem {
-                        Label {
-                            Text("Characters")
-                        } icon: {
-                            Image(.tabBarPerson)
-                        }
-                    }
-                    .tag(IMGR_TabBar.characters)
+//                IMGR_ModView(modCD: <#IMGR_ModsCD#>)
+//                    .tabItem {
+//                        Label {
+//                            Text("Characters")
+//                        } icon: {
+//                            Image(.tabBarPerson)
+//                        }
+//                    }
+//                    .tag(IMGR_TabBar.characters)
                 
                 IMGR_ModsView()
                     .tabItem {

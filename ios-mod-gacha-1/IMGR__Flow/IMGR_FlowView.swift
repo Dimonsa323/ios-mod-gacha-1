@@ -22,7 +22,7 @@ struct IMGR_FlowView: View {
         //    IMGR_TabBarView()
             //            IMGR_HomeView()
                 IMGR_pushContent(with: $screen)
-            //   .hideNavBar(with: true)
+               .hideNavBar(with: true)
         }
     }
     
@@ -61,6 +61,8 @@ struct IMGR_FlowView: View {
             case .editor(let IMGR_MyWorks):
                 EmptyView()
                 //            IMGR_EditorView(myMod: IMGR_MyWorks)
+            case .detailModView(let modCD):
+                IMGR_ModView(modCD: modCD)
             }
         }
     }

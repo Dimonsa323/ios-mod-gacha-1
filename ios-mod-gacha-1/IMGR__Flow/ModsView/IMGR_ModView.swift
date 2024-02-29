@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct IMGR_ModView: View {
+    let modCD: IMGR_ModsCD
     
-    @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
-    private var mods
+    init(modCD: IMGR_ModsCD) {
+        self.modCD = modCD
+    }
+    
+    //    @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
+    //    private var mods
     
     var textMod: String = """
 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum...
@@ -75,26 +81,26 @@ private extension IMGR_ModView {
     
     func contentView(geo: GeometryProxy) -> some View {
         VStack {
-           
-                RemoteImage(url: "/\(mods)", size: .init(width: 0, height: 150), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
-                //                .resizable()
-                //    .IMGR_cornerRadius_IMGR(isIPad ? 40 : 20, corners: .allCorners)
-                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
-                    .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
-                    .IMGR_iosDeviceTypeFrameAspec(iOSHeight: 200, iPadHeight: 400)
             
-                VStack(spacing: 0) {
-                    Text("Tittle")
-                        .kerning(1)
-                        .foregroundColor(.secondary1)
-                        .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
-                    
-                    Text(textMod)
-                        .kerning(0.7)
-                        .foregroundColor(.black)
-                        .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 14, iPadSize: 28))
-                        .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 8, iPadPadding: 16)
-                }
+            RemoteImage(url: "/\(modCD.image)", size: .init(width: 0, height: 150), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+            //                .resizable()
+            //    .IMGR_cornerRadius_IMGR(isIPad ? 40 : 20, corners: .allCorners)
+                .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
+                .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
+                .IMGR_iosDeviceTypeFrameAspec(iOSHeight: 200, iPadHeight: 400)
+            
+            VStack(spacing: 0) {
+                Text("Tittle")
+                    .kerning(1)
+                    .foregroundColor(.secondary1)
+                    .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
+                
+                Text(textMod)
+                    .kerning(0.7)
+                    .foregroundColor(.black)
+                    .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 14, iPadSize: 28))
+                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 8, iPadPadding: 16)
+            }
             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 16, iPadPadding: 32)
             
             .background(.tintWhite)
@@ -111,7 +117,7 @@ private extension IMGR_ModView {
                     Text("Download")
                         .kerning(1)
                         .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
-
+                    
                     Image(.property1Download)
                 }
                 
@@ -125,14 +131,21 @@ private extension IMGR_ModView {
             .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 32, iPadPadding: 64)
         }
         .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 12, iPadPadding: 24)
-
+        
         .frame(minHeight: geo.size.height)
     }
 }
 
 
 #Preview {
-    IMGR_ModView()
+    //    let coreDataStoreMock = IMGR_CoreDataStoreMock()
+    
+    
+    let viewContext = IMGR_CoreDataStoreMock.preview
+    let modCD = IMGR_ModsCD(context: viewContext)
+    modCD.name = "Gacha"
+    
+    return IMGR_ModView(modCD: modCD)
         .environment(\.managedObjectContext, IMGR_CoreDataStoreMock.preview)
 }
 

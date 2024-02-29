@@ -54,6 +54,9 @@ enum IMGR_ContentType: String, CaseIterable, Identifiable {
         }
     }
          
+//    var screens:  {
+//        
+//    }
 //    var folderName: String {
 //        switch self{
 //        case .mods:

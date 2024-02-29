@@ -71,9 +71,6 @@ private extension IMGR_HomeView {
                 ForEach(mods) { mod in
                     VStack(alignment: .leading) {
                         RemoteImage(url: "/\(mod.image ?? "")", size: .init(width: 0, height: 159), image: .constant(nil), cornerRadius: isIPad ? 32 : 16)
-                            .onTapGesture {
-                                navigator.push()
-                            }
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 12, iPadPadding: 24)
                         Text(mod.name ?? "")
                             .kerning(1)
@@ -83,6 +80,9 @@ private extension IMGR_HomeView {
                     .background(.modsCellBackground)
                     .IMGR_cornerRadius_IMGR(isIPad ? 32 : 16, corners: .allCorners)
                     .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 4, iPadPadding: 8)
+                    .onTapGesture {
+                        navigator.push(.detailModView(mod))
+                    }
                 }
             }
             .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 24)
