@@ -12,6 +12,7 @@ enum IMGR_MainRoute: Hashable {
     case detail(IMGR_ContentType)
     case editor(IMGR_EditorCD)
     case detailModView(IMGR_ModsCD)
+    case detailModsView
 }
 
 

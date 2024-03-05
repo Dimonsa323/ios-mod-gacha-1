@@ -75,20 +75,6 @@ extension IMGR_CoreDataStore {
             Logger.error(error)
         }
     }
-    
-//    func saveContext () {
-//        let context = viewContext
-//        if context.hasChanges {
-//            do {
-//                try context.save()
-//                print("Success ------------------>")
-//            } catch {
-//
-//                let nserror = error as NSError
-//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//            }
-//        }
-//    }
 
     func IMGR_rollBack() {
         func IMGR_factorial(_ n: Int) -> Int {

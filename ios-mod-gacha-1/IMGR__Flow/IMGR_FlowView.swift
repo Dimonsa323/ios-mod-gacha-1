@@ -19,8 +19,6 @@ struct IMGR_FlowView: View {
     
     var body: some View { 
         Router($navigationStore.routes) { $screen, _ in
-        //    IMGR_TabBarView()
-            //            IMGR_HomeView()
                 IMGR_pushContent(with: $screen)
                .hideNavBar(with: true)
         }
@@ -32,7 +30,7 @@ struct IMGR_FlowView: View {
                 ForEach(IMGR_ContentType.tabBar) { type in
                     switch navigationStore.selectedTab {
                     case .mods:
-                        IMGR_HomeView()
+                        IMGR_TabBarView()
                     case .characters:
                         EmptyView()
                     case .miniGames:
@@ -63,6 +61,8 @@ struct IMGR_FlowView: View {
                 //            IMGR_EditorView(myMod: IMGR_MyWorks)
             case .detailModView(let modCD):
                 IMGR_ModView(modCD: modCD)
+            case .detailModsView:
+                IMGR_ModsView()
             }
         }
     }

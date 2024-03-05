@@ -7,8 +7,11 @@
 
 import SwiftUI
 import Resolver
+import FlowStacks
 
 struct IMGR_ModView: View {
+    @EnvironmentObject var navigator: FlowNavigator<IMGR_MainRoute>
+    
     let modCD: IMGR_ModsCD
     
     init(modCD: IMGR_ModsCD) {
@@ -51,7 +54,7 @@ private extension IMGR_ModView {
     var navBarView: some View {
         HStack {
             Button {
-                //
+                navigator.goBack()
             } label: {
                 Image(.navBarBack)
                     .resizable()
@@ -81,21 +84,20 @@ private extension IMGR_ModView {
     
     func contentView(geo: GeometryProxy) -> some View {
         VStack {
-            
-            RemoteImage(url: "/\(modCD.image)", size: .init(width: 0, height: 150), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+            RemoteImage(url: "/\(modCD.image ?? "" )", size: .init(width: 0, height: 150), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
             //                .resizable()
             //    .IMGR_cornerRadius_IMGR(isIPad ? 40 : 20, corners: .allCorners)
                 .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
                 .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
-                .IMGR_iosDeviceTypeFrameAspec(iOSHeight: 200, iPadHeight: 400)
+                 .IMGR_iosDeviceTypeFrameAspec(iOSHeight: 200, iPadHeight: 400)
             
             VStack(spacing: 0) {
-                Text("Tittle")
+                Text(modCD.name ?? "")
                     .kerning(1)
                     .foregroundColor(.secondary1)
                     .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
                 
-                Text(textMod)
+                Text(modCD.descriptionCD ?? "")
                     .kerning(0.7)
                     .foregroundColor(.black)
                     .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 14, iPadSize: 28))
@@ -138,9 +140,6 @@ private extension IMGR_ModView {
 
 
 #Preview {
-    //    let coreDataStoreMock = IMGR_CoreDataStoreMock()
-    
-    
     let viewContext = IMGR_CoreDataStoreMock.preview
     let modCD = IMGR_ModsCD(context: viewContext)
     modCD.name = "Gacha"

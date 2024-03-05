@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import FlowStacks
 
 struct IMGR_ModsView: View {
+    @EnvironmentObject var navigator: FlowNavigator<IMGR_MainRoute>
     @State private var searchText = ""
     
     @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
@@ -66,7 +68,7 @@ private extension IMGR_ModsView {
     var navBarView: some View {
         HStack {
             Button {
-                //
+                navigator.goBack()
             } label: {
                 Image(.navBarBack)
                     .resizable()
@@ -142,6 +144,11 @@ struct CardView: View {
 
 
 #Preview {
-    IMGR_ModsView()
+    let viewContext = IMGR_CoreDataStoreMock.preview
+    let modsCD = IMGR_ModsCD(context: viewContext)
+    modsCD.name = "Gacha"
+    
+    return IMGR_ModsView()
         .environment(\.managedObjectContext, IMGR_CoreDataStoreMock.preview)
 }
+

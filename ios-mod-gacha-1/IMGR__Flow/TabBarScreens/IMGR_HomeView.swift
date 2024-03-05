@@ -47,25 +47,25 @@ private extension IMGR_HomeView {
     //MARK: - Mod List View
     
     var modsListView: some View {
-        HStack(spacing: 0) {
-            Text("Mods")
-                .kerning(1)
-                .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
-            
-            
-            Spacer()
-            
-            Button {
-                //
-            } label: {
-                Text("See All")
-                    .kerning(0.8)
-                    .foregroundStyle(Color.black)
-                    .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
+            HStack(spacing: 0) {
+                Text("Mods")
+                    .kerning(1)
+                    .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
+                
+                Spacer()
+                
+                Button {
+                    navigator.push(.detailModsView)
+                } label: {
+                    Text("See All")
+                        .kerning(0.8)
+                        .foregroundStyle(Color.black)
+                        .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
+                }
             }
-        }
         .IMGR_iosDeviceTypePadding(edge:.horizontal, iOSPadding: 20, iPadPadding: 40)
         .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
+        
         ScrollView(.horizontal, showsIndicators: false) {
             HStack() {
                 ForEach(mods) { mod in
