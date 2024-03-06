@@ -11,6 +11,7 @@ import FlowStacks
 struct IMGR_ModsView: View {
     @EnvironmentObject var navigator: FlowNavigator<IMGR_MainRoute>
     @State private var searchText = ""
+    @State private var isModalShow = false
     
     @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
     private var mods
@@ -86,9 +87,8 @@ private extension IMGR_ModsView {
             Spacer()
             
             Button {
-                //
+                isModalShow.toggle()
             } label: {
-                
                 Image(.property1Filters)
                     .resizable()
                     .frame(width: isIPad ? 48 : 24)
@@ -96,10 +96,12 @@ private extension IMGR_ModsView {
                     .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 20, iPadPadding: 40)
                 
             }
-            
         }
         .IMGR_iosDeviceTypePadding(edge: .bottom, iOSPadding: 12, iPadPadding: 24)
         .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
+//        .sheet(isPresented: @isModalShow) {
+//            
+//        }
     }
 }
 

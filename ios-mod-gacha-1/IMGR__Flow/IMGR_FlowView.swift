@@ -26,25 +26,26 @@ struct IMGR_FlowView: View {
     
     var tabBar: some View {
         IMGR_ZStackWithBackground {
-            TabView(selection: $navigationStore.selectedTab) {
-                ForEach(IMGR_ContentType.tabBar) { type in
-                    switch navigationStore.selectedTab {
-                    case .mods:
-                        IMGR_TabBarView()
-                    case .characters:
-                        EmptyView()
-                    case .miniGames:
-                        EmptyView()
-                    case .settings:
-                        IMGR_SettingsView()
-                    default:
-                        EmptyView()
-                    }
-                }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                .disableTabViewSwipe()
-                .edgesIgnoringSafeArea(.bottom)
-            }
+            IMGR_TabBarView()
+//            TabView(selection: $navigationStore.selectedTab) {
+//                ForEach(IMGR_ContentType.tabBar) { type in
+//                    switch navigationStore.selectedTab {
+//                    case .mods:
+//                        IMGR_TabBarView()
+//                    case .characters:
+//                        IMGR_CharactersView()
+//                    case .miniGames:
+//                        IMGR_GamesView()
+//                    case .settings:
+//                        IMGR_SettingsView()
+//                    default:
+//                        EmptyView()
+//                    }
+//                }
+//              //  .tabViewStyle(.page(indexDisplayMode: .never))
+//              //  .disableTabViewSwipe()
+//              //  .edgesIgnoringSafeArea(.bottom)
+//            }
         }
     }
         
@@ -56,7 +57,7 @@ struct IMGR_FlowView: View {
             case let .detail(contentType):
                 EmptyView() 
                 //    IMGR_GeneralDetailView(item: item, contentType: contentType)
-            case .editor(let IMGR_MyWorks):
+            case .editor(_):
                 EmptyView()
                 //            IMGR_EditorView(myMod: IMGR_MyWorks)
             case .detailModView(let modCD):
