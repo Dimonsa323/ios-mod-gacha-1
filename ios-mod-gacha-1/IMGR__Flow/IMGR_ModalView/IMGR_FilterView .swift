@@ -11,12 +11,17 @@ import FlowStacks
 struct IMGR_FilterView_: View {
     @EnvironmentObject var navigator: FlowNavigator<IMGR_MainRoute>
     
+    @State private var isNewSelected = false
+    @State private var isAllSelected = false
+    @State private var isTopSelected = false
+    @State private var isFavoritesSelected = false
+    
     var body: some View {
         VStack {
             HStack() {
-                
+                Spacer()
                 Text("Filter")
-                    .kerning(1.0)
+                    .kerning(0.7)
                     .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
                 
                 Button {
@@ -24,49 +29,55 @@ struct IMGR_FilterView_: View {
                 } label: {
                     Image(.xmark2)
                 }
-                //            .padding(.trailing, 20)
+                .IMGR_iosDeviceTypePadding(edge: .leading, iOSPadding: 105, iPadPadding: 210)
             }
-            .border(.red)
-            .padding(.horizontal, 24)
+            .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 20, iPadPadding: 40)
+            .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 12, iPadPadding: 24)
             
             VStack {
                 HStack {
                     Button {
-                        //
+                        isNewSelected.toggle()
                     } label: {
                         Text("New")
+                            .kerning(0.5)
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
-                            .padding(.horizontal, 21)
-                            .padding(.vertical, 7)
+                            .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 21, iPadPadding: 42)
+                            .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 7, iPadPadding: 14)
                             .background(.secondary1)
                             .foregroundColor(.white)
                             .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
                     }
+                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 12, iPadPadding: 24)
                     
                     Button {
                         //
                     } label: {
                         Text("All")
+                            .kerning(0.5)
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
-                            .padding(.horizontal, 21)
-                            .padding(.vertical, 7)
+                            .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 21, iPadPadding: 42)
+                            .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 7, iPadPadding: 14)
                             .background(.white)
                             .foregroundColor(.secondary1)
                             .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
                     }
+                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 12, iPadPadding: 24)
                     
                     Button {
                         //
                     } label: {
                         Text("Top")
+                            .kerning(0.5)
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
-                            .padding(.horizontal, 21)
-                            .padding(.vertical, 7)
+                            .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 21, iPadPadding: 42)
+                            .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 7, iPadPadding: 14)
                             .background(.white)
                             .foregroundColor(.secondary1)
                             .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
                     }
                 }
+                .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 44, iPadPadding: 88)
                 
                 HStack {
                     Button {
@@ -75,19 +86,24 @@ struct IMGR_FilterView_: View {
                         Text("Favorites")
                             .kerning(0.5)
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
-                            .padding(.horizontal, 21)
-                            .padding(.vertical, 7)
+                            .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 21, iPadPadding: 42)
+                            .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 7, iPadPadding: 14)
                             .background(.white)
                             .foregroundColor(.secondary1)
                             .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
                     }
+                    //                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 107, iPadPadding: 200)
+                    
                 }
-                
-            //    .padding(.trailing, 107)
+                .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 24)
+                //      .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
+                .border(.red)
             }
+            .IMGR_iosDeviceTypePadding(edge: .bottom, iOSPadding: 20, iPadPadding: 40)
         }
-        .frame(width: 350, height: 160, alignment: .center)
+        .frame(width: 350)
         .border(.red)
+        .IMGR_cornerRadius_IMGR(isIPad ? 48 : 24, corners: .allCorners)
     }
 }
 
