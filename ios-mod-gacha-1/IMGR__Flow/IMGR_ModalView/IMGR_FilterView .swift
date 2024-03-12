@@ -8,10 +8,10 @@
 import SwiftUI
 import FlowStacks
 
-struct IMGR_FilterView_: View {
+struct IMGR_FilterView: View {
     @EnvironmentObject var navigator: FlowNavigator<IMGR_MainRoute>
     
-    @State private var isNewSelected = false
+    @State private var isNewSelected = true
     @State private var isAllSelected = false
     @State private var isTopSelected = false
     @State private var isFavoritesSelected = false
@@ -44,36 +44,36 @@ struct IMGR_FilterView_: View {
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
                             .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 21, iPadPadding: 42)
                             .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 7, iPadPadding: 14)
-                            .background(.secondary1)
-                            .foregroundColor(.white)
+                            .background(isNewSelected ? Color.secondary1 : Color.white)
+                            .foregroundColor(isNewSelected ? Color.white : Color.secondary1)
                             .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
                     }
                     .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 12, iPadPadding: 24)
                     
                     Button {
-                        //
+                        isAllSelected.toggle()
                     } label: {
                         Text("All")
                             .kerning(0.5)
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
                             .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 21, iPadPadding: 42)
                             .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 7, iPadPadding: 14)
-                            .background(.white)
-                            .foregroundColor(.secondary1)
+                            .background(isAllSelected ? Color.secondary1 : Color.white)
+                            .foregroundColor(isAllSelected ? Color.white : Color.secondary1)
                             .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
                     }
                     .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 12, iPadPadding: 24)
                     
                     Button {
-                        //
+                        isTopSelected.toggle()
                     } label: {
                         Text("Top")
                             .kerning(0.5)
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
                             .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 21, iPadPadding: 42)
                             .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 7, iPadPadding: 14)
-                            .background(.white)
-                            .foregroundColor(.secondary1)
+                            .background(isTopSelected ? Color.secondary1 : Color.white)
+                            .foregroundColor(isTopSelected ? Color.white : Color.secondary1)
                             .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
                     }
                 }
@@ -81,15 +81,15 @@ struct IMGR_FilterView_: View {
                 
                 HStack {
                     Button {
-                        //
+                        isFavoritesSelected.toggle()
                     } label: {
                         Text("Favorites")
                             .kerning(0.5)
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
                             .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 21, iPadPadding: 42)
                             .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 7, iPadPadding: 14)
-                            .background(.white)
-                            .foregroundColor(.secondary1)
+                            .background(isFavoritesSelected ? Color.secondary1 : Color.white)
+                            .foregroundColor(isFavoritesSelected ? Color.white : Color.secondary1)
                             .IMGR_cornerRadius_IMGR(isIPad ? 24 : 12, corners: .allCorners)
                     }
                     //                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 107, iPadPadding: 200)
@@ -97,16 +97,16 @@ struct IMGR_FilterView_: View {
                 }
                 .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 24)
                 //      .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
-                .border(.red)
+            //    .border(.red)
+                .offset(x: -75)
             }
             .IMGR_iosDeviceTypePadding(edge: .bottom, iOSPadding: 20, iPadPadding: 40)
         }
         .frame(width: 350)
-        .border(.red)
         .IMGR_cornerRadius_IMGR(isIPad ? 48 : 24, corners: .allCorners)
     }
 }
 
 #Preview {
-    IMGR_FilterView_()
+    IMGR_FilterView()
 }

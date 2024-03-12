@@ -154,7 +154,6 @@ private extension IMGR_HomeView {
         }
         .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
         .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 24, iPadPadding: 48)
-        
     }
 }
 

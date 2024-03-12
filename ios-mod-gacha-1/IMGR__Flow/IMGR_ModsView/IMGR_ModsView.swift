@@ -33,6 +33,7 @@ Lorem ipsum dolor sit amet, consectetur adipisci elit...
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: columns) {
                         ForEach(mods) { mod in
+                            #warning("TEXT CELL")
                             CardView(text: textCell, imageURL: "/\(mod.image ?? "")")
                         }
                         .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 6, iPadPadding: 12)

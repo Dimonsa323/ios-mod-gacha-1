@@ -26,7 +26,8 @@ struct IMGR_FlowView: View {
     
     var tabBar: some View {
         IMGR_ZStackWithBackground {
-            IMGR_TabBarView()
+            IMGR_CharactersView()
+//            IMGR_TabBarView()
 //            TabView(selection: $navigationStore.selectedTab) {
 //                ForEach(IMGR_ContentType.tabBar) { type in
 //                    switch navigationStore.selectedTab {

@@ -49,3 +49,4 @@ struct IMGR_Character: Codable, IMGR_CoreDataConvertible {
         }
 }
 
+ 
