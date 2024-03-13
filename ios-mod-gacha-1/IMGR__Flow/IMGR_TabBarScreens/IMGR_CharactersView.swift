@@ -61,6 +61,14 @@ struct IMGR_CharactersView: View {
                         ForEach(characters) { character in
                             CardViewCharacter(imageURL: "/\(character.image ?? "")")
                         }
+                        .background(.white)
+                        .opacity(0.8)
+                        .IMGR_cornerRadius_IMGR(isIPad ? 40 : 20, corners: .allCorners)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: isIPad ? 40 : 20)
+                                .stroke(.white, lineWidth: isIPad ? 2 : 1)
+                        }
+                        .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 20, iPadPadding: 40)
                     }
                 }
                 Spacer()
@@ -84,7 +92,6 @@ struct CardViewCharacter: View {
                 .foregroundColor(.black)
         }
     }
-    
 }
 
 #Preview {

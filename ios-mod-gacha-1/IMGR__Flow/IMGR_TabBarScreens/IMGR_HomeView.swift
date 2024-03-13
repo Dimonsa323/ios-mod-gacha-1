@@ -119,6 +119,7 @@ private extension IMGR_HomeView {
                 HStack() {
                     ForEach(outfitIdea) { outfit in
                         RemoteImage(url: "/\(outfit.image ?? "")", size: .init(width: 0, height: 171), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+                            .IMGR_iosDeviceTypeFrame(iOSWidth: 155, iOSHeight: 226)
 //                            .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 8, iPadPadding: 16)
                             .background(.whiteLight)
@@ -129,7 +130,9 @@ private extension IMGR_HomeView {
                 .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
                 
             }
+//            .IMGR_iosDeviceTypeFrame(iOSWidth: 171, iOSHeight: 242, iPadWidth: 342, iPadHeight: 484)
             .IMGR_iosDeviceTypeFrameAspec(iOSHeight: 242, iPadHeight: 484)
+            
         }
     }
     

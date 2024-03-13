@@ -43,7 +43,7 @@ class IMGR_CoreDataStoreMock {
             object.name = "Gacha Club"
             object.descriptionCD = description
             object.id = UUID()
-            object.image = "mods/1.jpg"
+            object.image = "mods/1.png"
             object.filePatch = "aha-world-mod.apk"
             object.new = false
             object.top = true
@@ -69,7 +69,7 @@ class IMGR_CoreDataStoreMock {
         let objectsCD = (1...20).map { index in
             let object = IMGR_CharacterCD(context: moc)
             object.id = UUID()
-            object.image = "characters/1chi.jpg"
+            object.image = "characters/1chi.png"
             object.new = false
             object.top = true
             
@@ -92,7 +92,7 @@ class IMGR_CoreDataStoreMock {
         let objectsCD = (1...20).map { index in
             let object = IMGR_OutfitIdeaCD(context: moc)
             object.id = UUID()
-            object.image = "OutfitIdeas/1.jpg"
+            object.image = "OutfitIdeas/1.png"
             object.new = false
             object.top = true
             
@@ -115,7 +115,7 @@ class IMGR_CoreDataStoreMock {
         let objectsCD = (1...20).map { index in
             let object = IMGR_WallpaperCD(context: moc)
             object.id = UUID()
-            object.image = "wallpapers/1.jpg"
+            object.image = "wallpapers/1.png"
             object.newWall = false
             object.top = true
             
@@ -140,7 +140,7 @@ class IMGR_CoreDataStoreMock {
             object.name = "Character Creation"
             object.id = UUID()
             object.gameplay = description
-            object.image = "MiniGames/1.jpg"
+            object.image = "MiniGames/1.png"
             object.new = false
             object.top = true
             
