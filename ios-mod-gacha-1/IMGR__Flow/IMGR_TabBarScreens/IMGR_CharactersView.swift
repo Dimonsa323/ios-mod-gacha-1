@@ -35,7 +35,7 @@ struct IMGR_CharactersView: View {
                         .foregroundColor(.black)
                         .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 19, iPadPadding: 38)
                         .IMGR_iosDeviceTypePadding(edge: .leading, iOSPadding: 40, iPadPadding: 80)
-//                        .frame(alignment: .trailing)
+                    //                        .frame(alignment: .trailing)
                     //    .border(.red)
                     //                        .IMGR_iosDeviceTypePadding(edge: .leading, iOSPadding: 63, iPadPadding: 126)
                     
@@ -57,7 +57,7 @@ struct IMGR_CharactersView: View {
                     .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
                 
                 ScrollView(.vertical, showsIndicators: false) {
-                    LazyVGrid(columns: columns) {
+                    LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(characters) { character in
                             CardViewCharacter(imageURL: "/\(character.image ?? "")")
                         }
@@ -68,29 +68,37 @@ struct IMGR_CharactersView: View {
                             RoundedRectangle(cornerRadius: isIPad ? 40 : 20)
                                 .stroke(.white, lineWidth: isIPad ? 2 : 1)
                         }
-                        .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 20, iPadPadding: 40)
                     }
+                    .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 8, iPadPadding: 16)
                 }
-                Spacer()
+                .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 20, iPadPadding: 40)
             }
         }
     }
 }
-   
+
 struct CardViewCharacter: View {
     
-//    let text: String
+    //    let text: String
     let imageURL: String
     
     var body: some View {
         VStack {
             RemoteImage(url: imageURL, size: .init(width: 0, height: isIPad ? 452 : 226), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
             
+                .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 8, iPadPadding: 16)
+                .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 8, iPadPadding: 16)
+                .background(.whiteLight)
+                .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
+            
             Text("Tittle")
                 .kerning(0.5)
                 .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
                 .foregroundColor(.black)
+                .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 6, iPadPadding: 12)
+                .IMGR_iosDeviceTypePadding(edge: .bottom, iOSPadding: 8, iPadPadding: 16)
         }
+        .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
     }
 }
 

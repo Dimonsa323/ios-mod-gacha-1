@@ -70,8 +70,11 @@ private extension IMGR_HomeView {
             HStack() {
                 ForEach(mods) { mod in
                     VStack(alignment: .leading) {
+                        #warning("FRAME")
                         RemoteImage(url: "/\(mod.image ?? "")", size: .init(width: 0, height: 159), image: .constant(nil), cornerRadius: isIPad ? 32 : 16)
+                            .IMGR_iosDeviceTypeFrame(iOSWidth: 326, iOSHeight: 159, iPadWidth: 652, iPadHeight: 318)
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 12, iPadPadding: 24)
+                        
                         Text(mod.name ?? "")
                             .kerning(1)
                             .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .bold, iPhoneSize: 20, iPadSize: 40))
@@ -117,8 +120,10 @@ private extension IMGR_HomeView {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack() {
+                    #warning("FRAME")
                     ForEach(outfitIdea) { outfit in
-                        RemoteImage(url: "/\(outfit.image ?? "")", size: .init(width: 0, height: 171), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+                        RemoteImage(url: "/\(outfit.image ?? "")", size: .init(width: 0, height: isIPad ? 452 : 226), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+                        
                             .IMGR_iosDeviceTypeFrame(iOSWidth: 155, iOSHeight: 226)
 //                            .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 8, iPadPadding: 16)
