@@ -71,8 +71,9 @@ private extension IMGR_HomeView {
                 ForEach(mods) { mod in
                     VStack(alignment: .leading) {
                         #warning("FRAME")
-                        RemoteImage(url: "/\(mod.image ?? "")", size: .init(width: 0, height: 159), image: .constant(nil), cornerRadius: isIPad ? 32 : 16)
-                            .IMGR_iosDeviceTypeFrame(iOSWidth: 326, iOSHeight: 159, iPadWidth: 652, iPadHeight: 318)
+                        RemoteImage(url: "/\(mod.image ?? "")", size: .init(width: 0, height: isIPad ? 318 : 159), image: .constant(nil), cornerRadius: isIPad ? 32 : 16)
+                         //   .aspectRatio(contentMode: .fit)
+//                            .IMGR_iosDeviceTypeFrame(iOSWidth: 326, iOSHeight: 159, iPadWidth: 652, iPadHeight: 318)
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 12, iPadPadding: 24)
                         
                         Text(mod.name ?? "")
@@ -123,9 +124,6 @@ private extension IMGR_HomeView {
                     #warning("FRAME")
                     ForEach(outfitIdea) { outfit in
                         RemoteImage(url: "/\(outfit.image ?? "")", size: .init(width: 0, height: isIPad ? 452 : 226), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
-                        
-                            .IMGR_iosDeviceTypeFrame(iOSWidth: 155, iOSHeight: 226)
-//                            .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
                             .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 8, iPadPadding: 16)
                             .background(.whiteLight)
                             .IMGR_cornerRadius_IMGR(20, corners: .allCorners)

@@ -69,7 +69,7 @@ struct IMGR_CharactersView: View {
                                 .stroke(.white, lineWidth: isIPad ? 2 : 1)
                         }
                     }
-                    .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 8, iPadPadding: 16)
+                    .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 12, iPadPadding: 24)
                 }
                 .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 20, iPadPadding: 40)
             }
@@ -79,17 +79,120 @@ struct IMGR_CharactersView: View {
 
 struct CardViewCharacter: View {
     
+    @State private var showExtraButtons = false
     //    let text: String
     let imageURL: String
     
     var body: some View {
         VStack {
-            RemoteImage(url: imageURL, size: .init(width: 0, height: isIPad ? 452 : 226), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
-            
-                .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 8, iPadPadding: 16)
-                .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 8, iPadPadding: 16)
-                .background(.whiteLight)
-                .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
+            ZStack(alignment: .topTrailing) {
+                RemoteImage(url: imageURL, size: .init(width: 0, height: isIPad ? 452 : 244), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+                
+                    .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 8, iPadPadding: 16)
+                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 8, iPadPadding: 16)
+                    .background(.whiteLight)
+                    .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
+                
+                VStack(spacing: 4) {
+                    if showExtraButtons {
+                        VStack(spacing: 2) {
+                            Button {
+                                showExtraButtons.toggle()
+                            } label: {
+                                Image(.showButton)
+                            }
+                            
+                            Button(action: {
+                                //
+                            }) {
+                                Image(.starButton)
+                            }
+                            
+                            Button(action: {
+                                //
+                            }) {
+                                Image(.downloadButton)
+                            }
+                            
+                            Button(action: {
+                                //
+                            }) {
+                                Image(.screenButton)
+                            }
+                            
+                            Button(action: {
+                                //
+                            }) {
+                                Image(.shareButton)
+                            }
+                            
+                        }
+                        .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 8, iPadPadding: 16)
+                        .background(.blureButton)
+                        .IMGR_cornerRadius_IMGR(isIPad ? 120 : 60, corners: .allCorners)
+                        .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 18, iPadPadding: 40)
+                        .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 10, iPadPadding: 40)
+//                        .padding()
+                    }
+                }
+//
+                
+                if !showExtraButtons {
+                    Button {
+                        showExtraButtons.toggle()
+                    } label: {
+                        Image(.showButton)
+                    }
+                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 24, iPadPadding: 40)
+                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 15, iPadPadding: 40)
+                }
+            }
+//                VStack(spacing: 4) {
+//                    if !showExtraButtons {
+//                        Button {
+//                            showExtraButtons.toggle()
+//                        } label: {
+//                            Image(.showButton)
+//                                .padding()
+//                        }
+//                    }
+//                    
+//                    if showExtraButtons {
+//                        Button {
+//                            showExtraButtons.toggle()
+//                        } label: {
+//                            Image(.showButton)
+//                        }
+//                        
+//                        Button(action: {
+//                            //
+//                        }) {
+//                            Image(.starButton)
+//                        }
+//                        
+//                        Button(action: {
+//                            //
+//                        }) {
+//                            Image(.downloadButton)
+//                        }
+//                        
+//                        Button {
+//                            //
+//                        } label: {
+//                            Image(.screenButton)
+//                        }
+//                        
+//                        Button {
+//                            //
+//                        } label: {
+//                            Image(.shareButton)
+//                        }
+//                        
+//                        .background(.blureButton)
+//                        .IMGR_cornerRadius_IMGR(isIPad ? 120 : 60, corners: .allCorners)
+//                    }
+//                }
+//            }
             
             Text("Tittle")
                 .kerning(0.5)
