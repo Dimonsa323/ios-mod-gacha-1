@@ -86,16 +86,16 @@ struct CardViewCharacter: View {
     var body: some View {
         VStack {
             ZStack(alignment: .topTrailing) {
-                RemoteImage(url: imageURL, size: .init(width: 0, height: isIPad ? 452 : 244), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+                RemoteImage(url: imageURL, size: .init(width: 0, height: isIPad ? 452 : 226), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
                 
                     .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 8, iPadPadding: 16)
-                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 8, iPadPadding: 16)
+                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 16)
                     .background(.whiteLight)
                     .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
                 
                 VStack(spacing: 4) {
                     if showExtraButtons {
-                        VStack(spacing: 2) {
+                        VStack(spacing: 4) {
                             Button {
                                 showExtraButtons.toggle()
                             } label: {
@@ -130,12 +130,11 @@ struct CardViewCharacter: View {
                         .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 8, iPadPadding: 16)
                         .background(.blureButton)
                         .IMGR_cornerRadius_IMGR(isIPad ? 120 : 60, corners: .allCorners)
-                        .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 18, iPadPadding: 40)
-                        .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 10, iPadPadding: 40)
-//                        .padding()
                     }
                 }
-//
+                .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 12, iPadPadding: 20)
+                .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 10, iPadPadding: 20)
+              
                 
                 if !showExtraButtons {
                     Button {
@@ -143,56 +142,10 @@ struct CardViewCharacter: View {
                     } label: {
                         Image(.showButton)
                     }
-                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 24, iPadPadding: 40)
-                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 15, iPadPadding: 40)
+                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 17, iPadPadding: 20)
+                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 15, iPadPadding: 20)
                 }
             }
-//                VStack(spacing: 4) {
-//                    if !showExtraButtons {
-//                        Button {
-//                            showExtraButtons.toggle()
-//                        } label: {
-//                            Image(.showButton)
-//                                .padding()
-//                        }
-//                    }
-//                    
-//                    if showExtraButtons {
-//                        Button {
-//                            showExtraButtons.toggle()
-//                        } label: {
-//                            Image(.showButton)
-//                        }
-//                        
-//                        Button(action: {
-//                            //
-//                        }) {
-//                            Image(.starButton)
-//                        }
-//                        
-//                        Button(action: {
-//                            //
-//                        }) {
-//                            Image(.downloadButton)
-//                        }
-//                        
-//                        Button {
-//                            //
-//                        } label: {
-//                            Image(.screenButton)
-//                        }
-//                        
-//                        Button {
-//                            //
-//                        } label: {
-//                            Image(.shareButton)
-//                        }
-//                        
-//                        .background(.blureButton)
-//                        .IMGR_cornerRadius_IMGR(isIPad ? 120 : 60, corners: .allCorners)
-//                    }
-//                }
-//            }
             
             Text("Tittle")
                 .kerning(0.5)
@@ -202,6 +155,7 @@ struct CardViewCharacter: View {
                 .IMGR_iosDeviceTypePadding(edge: .bottom, iOSPadding: 8, iPadPadding: 16)
         }
         .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
+        .IMGR_iosDeviceTypeFrame(iOSHeight: 266, iPadHeight: 532)
     }
 }
 
