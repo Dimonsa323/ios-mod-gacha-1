@@ -12,9 +12,6 @@ struct IMGR_CharactersView: View {
     @EnvironmentObject var navigator: FlowNavigator<IMGR_MainRoute>
     @State private var searchText = ""
     
-    @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
-    private var mods
-    
     @FetchRequest<IMGR_CharacterCD>(fetchRequest: .IMGR_characters())
     private var characters
     
@@ -59,7 +56,7 @@ struct IMGR_CharactersView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(characters) { character in
-                            CardViewCharacter(imageURL: "/\(character.image ?? "")")
+                            CardViewCharacter(text: character.name ?? "", imageURL: "/\(character.image ?? "")")
                         }
                         .background(.white)
                         .opacity(0.8)
@@ -70,6 +67,7 @@ struct IMGR_CharactersView: View {
                         }
                     }
                     .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 12, iPadPadding: 24)
+                    .border(.red)
                 }
                 .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 20, iPadPadding: 40)
             }
@@ -80,18 +78,29 @@ struct IMGR_CharactersView: View {
 struct CardViewCharacter: View {
     
     @State private var showExtraButtons = false
-    //    let text: String
+    let text: String
     let imageURL: String
     
     var body: some View {
         VStack {
             ZStack(alignment: .topTrailing) {
                 RemoteImage(url: imageURL, size: .init(width: 0, height: isIPad ? 452 : 226), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+                    .scaledToFit()
                 
                     .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 8, iPadPadding: 16)
                     .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 16)
                     .background(.whiteLight)
                     .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
+                
+                if !showExtraButtons {
+                    Button {
+                        showExtraButtons.toggle()
+                    } label: {
+                        Image(.showButton)
+                    }
+                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 17, iPadPadding: 20)
+                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 15, iPadPadding: 20)
+                }
                 
                 VStack(spacing: 4) {
                     if showExtraButtons {
@@ -135,17 +144,9 @@ struct CardViewCharacter: View {
                 .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 12, iPadPadding: 20)
                 .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 10, iPadPadding: 20)
               
-                
-                if !showExtraButtons {
-                    Button {
-                        showExtraButtons.toggle()
-                    } label: {
-                        Image(.showButton)
-                    }
-                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 17, iPadPadding: 20)
-                    .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 15, iPadPadding: 20)
-                }
             }
+//            .background(.whiteLight)
+//            .IMGR_cornerRadius_IMGR(20, corners: .allCorners)
             
             Text("Tittle")
                 .kerning(0.5)
@@ -156,6 +157,7 @@ struct CardViewCharacter: View {
         }
         .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
         .IMGR_iosDeviceTypeFrame(iOSHeight: 266, iPadHeight: 532)
+        .border(.red)
     }
 }
 

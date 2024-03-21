@@ -26,6 +26,7 @@ struct IMGR_Collections: Codable, IMGR_CoreDataConvertible {
     let image: String
     let new: Bool
     let top: Bool
+    let name: String
     
     var favId: Int { id }
     var searchText: String? { nil }
@@ -35,6 +36,7 @@ struct IMGR_Collections: Codable, IMGR_CoreDataConvertible {
         case image = "tgrh"
         case new = "new"
         case top = "top"
+        case name = "ghitryi6"
     }
     
     init(from decoder: Decoder) throws {
@@ -43,6 +45,7 @@ struct IMGR_Collections: Codable, IMGR_CoreDataConvertible {
         self.image = try container.decode(String.self, forKey: .image)
         self.new = try container.decode(Bool.self, forKey: .new)
         self.top = try container.decode(Bool.self, forKey: .top)
+        self.name = try container.decode(String.self, forKey: .name)
     }
     
     func convertToCoreDataEntity(in context: NSManagedObjectContext) -> IMGR_CollectionsCD {
@@ -51,6 +54,7 @@ struct IMGR_Collections: Codable, IMGR_CoreDataConvertible {
             dataCD.image = self.image
             dataCD.new = self.new
             dataCD.top = self.top
+            dataCD.name = self.name
             return dataCD
         }
 }

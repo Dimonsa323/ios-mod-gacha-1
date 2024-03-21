@@ -26,9 +26,10 @@ struct IMGR_Character: Codable, IMGR_CoreDataConvertible {
     let image: String
     let new: Bool
     let top: Bool
+    let name: String
     
     enum CodingKeys: String, CodingKey {
-        case id = "bjhiio0", image = "tgrh", new = "new", top = "top"
+        case id = "bjhiio0", image = "tgrh", new = "new", top = "top", name = "dftjryunse"
     }
     
     init(from decoder: Decoder) throws {
@@ -37,6 +38,7 @@ struct IMGR_Character: Codable, IMGR_CoreDataConvertible {
         self.image = try container.decode(String.self, forKey: .image)
         self.new = try container.decode(Bool.self, forKey: .new)
         self.top = try container.decode(Bool.self, forKey: .top)
+        self.name = try container.decode(String.self, forKey: .name)
     }
     
     func convertToCoreDataEntity(in context: NSManagedObjectContext) -> IMGR_CharacterCD {
@@ -45,6 +47,7 @@ struct IMGR_Character: Codable, IMGR_CoreDataConvertible {
             dataCD.image = self.image
             dataCD.new = self.new
             dataCD.top = self.top
+            dataCD.name = self.name
             return dataCD
         }
 }

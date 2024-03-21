@@ -13,9 +13,6 @@ struct IMGR_CollectionsView: View {
     @State private var searchText = ""
     @State private var isModalShow = false
     
-    @FetchRequest<IMGR_ModsCD>(fetchRequest: .IMGR_mods())
-    private var mods
-    
     @FetchRequest<IMGR_CollectionsCD>(fetchRequest: .IMGR_collections())
     private var collections
     
@@ -26,29 +23,27 @@ struct IMGR_CollectionsView: View {
     
     var body: some View {
         IMGR_ZStackWithBackground {
-            VStack {
-                VStack(spacing: 0) {
-                    navBarView
-                    IMGR_CustomSearchBar_Ext(searchText: $searchText)
-                        .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
-                    
-                    ScrollView(.vertical, showsIndicators: false) {
-                        LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(collections) { collection in
-                                CardCollectionView(imageURL: "/\(collection.image ?? "")")
-                            }
-                            .background(.white)
-                            .opacity(0.8)
-                            .IMGR_cornerRadius_IMGR(isIPad ? 40 : 20, corners: .allCorners)
-                            .overlay {
-                                RoundedRectangle(cornerRadius: isIPad ? 40 : 20)
-                                    .stroke(.white, lineWidth: isIPad ? 2 : 1)
-                            }
+            VStack(spacing: 0) {
+                navBarView
+                IMGR_CustomSearchBar_Ext(searchText: $searchText)
+                    .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 20, iPadPadding: 40)
+                
+                ScrollView(.vertical, showsIndicators: false) {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(collections) { collection in
+                            CardCollectionView(text: collection.name ?? "", imageURL: "/\(collection.image ?? "")")
                         }
-                        .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 12, iPadPadding: 24)
+                        .background(.white)
+                        .opacity(0.8)
+                        .IMGR_cornerRadius_IMGR(isIPad ? 40 : 20, corners: .allCorners)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: isIPad ? 40 : 20)
+                                .stroke(.white, lineWidth: isIPad ? 2 : 1)
+                        }
                     }
-                    .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 20, iPadPadding: 40)
+                    .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 12, iPadPadding: 24)
                 }
+                .IMGR_iosDeviceTypePadding(edge: .all, iOSPadding: 20, iPadPadding: 40)
             }
         }
     }
@@ -74,7 +69,7 @@ private extension IMGR_CollectionsView {
             
             Spacer()
             
-            Text("Mods")
+            Text("Collections")
                 .kerning(1.4)
                 .foregroundStyle(.black)
                 .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .regular, iPhoneSize: 28, iPadSize: 56))
@@ -94,22 +89,22 @@ private extension IMGR_CollectionsView {
         }
         .IMGR_iosDeviceTypePadding(edge: .bottom, iOSPadding: 12, iPadPadding: 24)
         .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 20, iPadPadding: 40)
-//        .sheet(isPresented: @isModalShow) {
-//
-//        }
+        //        .sheet(isPresented: @isModalShow) {
+        //
+        //        }
     }
 }
 
 struct CardCollectionView: View {
     
     @State private var showExtraButtons = false
-    //    let text: String
+    let text: String
     let imageURL: String
     
     var body: some View {
         VStack {
             ZStack(alignment: .topTrailing) {
-                RemoteImage(url: imageURL, size: .init(width: 0, height: isIPad ? 452 : 226), image: .constant(nil), cornerRadius: isIPad ? 40 : 20)
+                RemoteImage(url: imageURL, size: .init(width: 200, height: isIPad ? 452 : 226), image: .constant(nil), cornerRadius: 0)
                 
                     .IMGR_iosDeviceTypePadding(edge: .horizontal, iOSPadding: 8, iPadPadding: 16)
                     .IMGR_iosDeviceTypePadding(edge: .top, iOSPadding: 12, iPadPadding: 16)
@@ -157,7 +152,7 @@ struct CardCollectionView: View {
                 }
                 .IMGR_iosDeviceTypePadding(edge: .vertical, iOSPadding: 12, iPadPadding: 20)
                 .IMGR_iosDeviceTypePadding(edge: .trailing, iOSPadding: 10, iPadPadding: 20)
-              
+                
                 
                 if !showExtraButtons {
                     Button {
@@ -170,7 +165,7 @@ struct CardCollectionView: View {
                 }
             }
             
-            Text("Tittle")
+            Text(text)
                 .kerning(0.5)
                 .IMGR_iosDeviceTypeFont(font: .init(name: .comfortaa, style: .medium, iPhoneSize: 16, iPadSize: 32))
                 .foregroundColor(.black)
@@ -184,4 +179,5 @@ struct CardCollectionView: View {
 
 #Preview {
     IMGR_CollectionsView()
+        .environment(\.managedObjectContext, IMGR_CoreDataStoreMock.preview)
 }

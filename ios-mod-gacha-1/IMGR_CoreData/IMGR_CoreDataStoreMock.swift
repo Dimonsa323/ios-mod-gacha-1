@@ -163,7 +163,7 @@ class IMGR_CoreDataStoreMock {
         let objectsCD = (1...20).map { index in
             let object = IMGR_CollectionsCD(context: moc)
             object.id = UUID()
-            object.image = "MiniGames/1.jpg"
+            object.image = "MiniGames/1.png"
             object.new = false
             object.top = true
             

@@ -3,12 +3,14 @@
     <entity name="IMGR_CharacterCD" representedClassName="IMGR_CharacterCD" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="top" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="IMGR_CollectionsCD" representedClassName="IMGR_CollectionsCD" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="top" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
@@ -37,6 +39,7 @@
     <entity name="IMGR_OutfitIdeaCD" representedClassName="IMGR_OutfitIdeaCD" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="new" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="top" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
