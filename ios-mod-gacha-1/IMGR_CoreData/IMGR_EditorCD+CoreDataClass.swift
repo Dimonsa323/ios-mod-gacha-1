@@ -2,7 +2,7 @@
 //  IMGR_EditorCD+CoreDataClass.swift
 //  ios-mod-gacha-1
 //
-//  Created by Дима Губеня on 21.02.2024.
+//  Created by Дима Губеня on 21.03.2024.
 //
 //
 
